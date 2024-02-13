@@ -37,9 +37,9 @@ function ProductLists({ data }) {
                     <span>Narxi:</span>
                     <div className="badge badge-outline ">${d.price}</div>
                   </div>
-                  <button className="btn btn-secondary mt-[10px]">
+                  <Link href={`/product/${d.id}`} className="btn btn-secondary mt-[10px]">
                     Add to card
-                  </button>
+                  </Link>
                 </div>
               </li>
             );

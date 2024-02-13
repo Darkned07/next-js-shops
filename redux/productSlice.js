@@ -20,6 +20,7 @@ const productSlice = createSlice({
         state.total += 1;
       }
       productSlice.caseReducers.counterTotal(state);
+      localStorage.setItem("products", state);
     },
     counterTotal: (state) => {
       let allPrices = 0;
@@ -30,6 +31,7 @@ const productSlice = createSlice({
       });
       state.price = allPrices;
       state.total = selectedProds;
+      localStorage.setItem("products", state.allProduct);
     },
     decrementProduct: (state, { payload }) => {
       const item = state.allProduct.find((store) => store.id === payload);
@@ -38,6 +40,7 @@ const productSlice = createSlice({
         state.total -= 1;
       }
       productSlice.caseReducers.counterTotal(state);
+      localStorage.setItem("products", state.allProduct);
     },
     incrementProduct: (state, { payload }) => {
       const item = state.allProduct.find((store) => store.id === payload);
@@ -46,6 +49,7 @@ const productSlice = createSlice({
         state.total += 1;
       }
       productSlice.caseReducers.counterTotal(state);
+      localStorage.setItem("products", state.allProduct);
     },
     deletedProduct: (state, { payload }) => {
       const del = state.allProduct.filter((dels) => dels.id !== payload);
@@ -53,6 +57,7 @@ const productSlice = createSlice({
         state.allProduct = del;
       }
       productSlice.caseReducers.counterTotal(state);
+      localStorage.setItem("products", state.allProduct);
     },
   },
 });
